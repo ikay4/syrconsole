@@ -41,6 +41,10 @@ namespace syrconsole
             Console.WriteLine("------------------------------------");
             Console.WriteLine();
 
+            // Splash Screen
+
+
+
             // Window Init
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
