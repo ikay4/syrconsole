@@ -39,13 +39,14 @@ namespace syrconsole
             Console.WriteLine("SYR Tournament Console (Version 1.0)");
             Console.WriteLine("Created by Kye Keller (ikay3at)");
             Console.WriteLine("------------------------------------");
-            Console.WriteLine();
+            Console.WriteLine("Opening Start Up Splash Screen...");
 
             // Splash Screen
-
-
+            var splashScreen = new startUpSplashScreen();
+            splashScreen.ShowDialog();
 
             // Window Init
+            Console.WriteLine();
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
 
