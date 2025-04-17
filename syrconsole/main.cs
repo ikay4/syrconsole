@@ -23,7 +23,8 @@ namespace syrconsole
         public static class Globals //to do: change globals name
         {
             // General
-            public static String errorMessage {  get; set; }
+            public static String errorMessage { get; set; }
+            public static String startggApiKey { get; set; }
 
             // Pre-Event Settings
             public static String preEventVideoPath { get; set; }
