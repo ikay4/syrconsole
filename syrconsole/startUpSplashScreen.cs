@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static syrconsole.main;
+using static syrconsole.api;
 
 namespace syrconsole
 {
@@ -15,33 +16,35 @@ namespace syrconsole
     {
         public startUpSplashScreen()
         {
-
-
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private Boolean splashScreenCheckList()
+        private async Task<Boolean> splashScreenCheckList()
         {
-            if (startApiKey.TextLength != 32)
+            if (!await api.verifyKey())
             {
-                Globals.errorMessage = "start.gg API Key is not valid.";
+                Globals.errorMessage = "Invalid API Key";
                 return false;
-            }    
+            }
             return true;
         }
-        private void launchAppBtn_Click(object sender, EventArgs e)
+        private async void launchAppBtn_Click(object sender, EventArgs e)
         {
-            if (splashScreenCheckList())
+            apiGlobals.apiKey = startApiKey.Text;
+            if (await splashScreenCheckList())
             {
-                Globals.startggApiKey = startApiKey.Text;
-                Console.WriteLine(Globals.startggApiKey);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("API Key verified.");
+                Console.ForegroundColor = ConsoleColor.White;
                 this.Close();
             }
             else
             {
                 MessageBox.Show(Globals.errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("An error occured while trying to verify the API key. Restarting app...");
+                Application.Restart();
             }
         }
 

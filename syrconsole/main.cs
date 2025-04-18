@@ -14,6 +14,7 @@ using Windows.Devices;
 using Windows.Devices.Display;
 using System.Windows.Forms.VisualStyles;
 using Windows.Devices.Display.Core;
+using static syrconsole.api;
 
 namespace syrconsole
 {
@@ -24,7 +25,6 @@ namespace syrconsole
         {
             // General
             public static String errorMessage { get; set; }
-            public static String startggApiKey { get; set; }
 
             // Pre-Event Settings
             public static String preEventVideoPath { get; set; }
@@ -45,10 +45,14 @@ namespace syrconsole
             // Splash Screen
             var splashScreen = new startUpSplashScreen();
             splashScreen.ShowDialog();
+            Console.WriteLine($"Current User: {apiGlobals.response}");
+            Console.WriteLine("------------------------------------");
+
 
             // Window Init
             Console.WriteLine();
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
 
 

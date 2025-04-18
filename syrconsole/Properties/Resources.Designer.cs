@@ -113,6 +113,16 @@ namespace syrconsole.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap startsplashscreenpump {
+            get {
+                object obj = ResourceManager.GetObject("startsplashscreenpump", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap startsplashscreenwindows {
             get {
                 object obj = ResourceManager.GetObject("startsplashscreenwindows", resourceCulture);
